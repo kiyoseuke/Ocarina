@@ -9,3 +9,7 @@ tmp
 
 # The development sqlite file
 database/development.sqlite
+/Ocarina.code-workspace
+/package-lock.json
+/.env.example
+/.editorconfig
