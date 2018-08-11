@@ -1,0 +1,17 @@
+@layout('layouts.main')
+
+@section('header')
+  <div class="header-appname"></div>
+  <div class="header-user">
+    @!component('components.user')
+  </div>
+@endsection
+
+@section('content')
+  <div id="home-title">
+    @!component('components.appname')
+  </div>
+  <div id="home-subtitle">
+    <p>You can share your memories</p>
+  </div>
+@endsection

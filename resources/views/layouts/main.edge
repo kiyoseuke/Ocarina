@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title ? 'Ocarina | ' + title : 'Ocarina' }}</title>
+  {{ style('css/style') }}
+</head>
+<body>
+  <header id="header">
+      @!section('header')
+  </header>
+  <section id="section">
+    @!section('content')
+  </section>
+</body>
+<footer id="footer"></footer>
+</html>

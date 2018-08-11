@@ -1,0 +1,30 @@
+@layout('layouts.main')
+
+@section('header')
+  <div class="header-appname">
+    @!component('components.appname')
+  </div>
+@endsection
+
+@section('content')
+  @set('title', 'Register')
+  <form action="/register" method="post" id="register-form" accept-charset="UTF-8">
+    {{ csrfField() }}
+    <label for="username" id="username-label">Username</label>
+    <input type="text" id="username" name="username" required>
+    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('username'), hasErrorFor('username')) }}
+    <label for="email" id="email-label">Email</label>
+    <input type="text" id="email" name="email" required>
+    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('email'), hasErrorFor('email')) }}
+    <label for="password" id="password-label">Password</label>
+    <input type="password" id="password" name="password" required>
+    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('password'), hasErrorFor('password')) }}
+    <label for="passconfirm" id="passconfirm-label">Password Confirmation</label>
+    <input type="password" id="passconfirm" name="password_confirmation" required>
+    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
+  </form>
+  @if(flashMessage('error'))
+    <p class="error">{{ flashMessage('error') }}</p>
+  @endif
+  <button id="register" form="register-form">Register</button>
+@endsection

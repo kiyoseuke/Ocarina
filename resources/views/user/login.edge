@@ -1,0 +1,22 @@
+@layout('layouts.main')
+
+@section('header')
+  <div class="header-appname">
+    @!component('components.appname')
+  </div>
+@endsection
+
+@section('content')
+  @set('title', 'Login')
+  <form action="/login" method="post" id="login-form" accept-charset="UTF-8">
+    {{ csrfField() }}
+    <label for="username" id="username-label">Username</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password" id="password-label">Password</label>
+    <input type="password" id="password" name="password" required>
+  </form>
+  @if(flashMessage('error'))
+    <p id="login-error" class="error">{{ flashMessage('error') }}</p>
+  @endif
+  <button id="login" form="login-form">Login</button>
+@endsection
