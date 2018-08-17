@@ -1,16 +1,27 @@
 @layout('layouts.main')
 
 @section('body')
-  @!component('components.navbar')
-  <div id="home-title">
-    <span>
-      <i class="fas fa-palette"></i>
-    </span>
-    <span>
-      Ocarina
-    </span>
-  </div>
-  <div id="home-subtitle">
-    <p>You can share your memories</p>
+  <div id="home-container">
+    <nav id="home-nav">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="./login">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./register">Sign Up</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="home-title">
+      <span>
+        <i class="fas fa-palette"></i>
+      </span>
+      <span>
+        Ocarina
+      </span>
+    </div>
+    <div id="home-subtitle">
+      <p>You can share your memories</p>
+    </div>
   </div>
 @endsection

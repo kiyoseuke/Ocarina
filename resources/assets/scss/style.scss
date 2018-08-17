@@ -64,3 +64,46 @@ body {
   right: 0;
   top: 0;
 }
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2%;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+#home-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#home-title {
+  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.2s forwards;
+  color: $salmon-pink;
+  font-size: 100px;
+  text-align: center;
+}
+
+#home-subtitle {
+  animation: slideUp 1s cubic-bezier(0.19, 1, 0.30, 1) 0.5s forwards;
+  color: #BDB3CB;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 0.5;
+  opacity: 0;
+}
