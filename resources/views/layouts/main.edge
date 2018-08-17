@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ title ? 'Ocarina | ' + title : 'Ocarina' }}</title>
   {{ style('css/style') }}
 </head>
 <body>
-  <header id="header">
-      @!section('header')
-  </header>
-  <section id="section">
-    @!section('content')
-  </section>
+  @!section('body')
+  {{ script('js/bundle') }}
 </body>
-<footer id="footer"></footer>
 </html>

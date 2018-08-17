@@ -16,7 +16,6 @@
 const Route = use('Route');
 
 Route.on('/').render('home');
-Route.on('/home').render('home');
 
 // Those routes should be only accessible
 // when you are not logged in

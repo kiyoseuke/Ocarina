@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <span>
+      <i class="fas fa-palette"></i>
+    </span>
+    <span>
+      Ocarina
+    </span>
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    @loggedIn
+      <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ auth.user.username }}
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="./logout">Logout</a>
+        </div>
+      </div>
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" placeholder="Search">
+      </form>
+    @else
+      <a class="btn btn-primary" href="./login" role="button">Sign In</a>
+      <a class="btn btn-primary" href="./register" role="button">Sign Up</a>
+    @endloggedIn
+  </div>
+</nav>

@@ -1,30 +1,36 @@
 @layout('layouts.main')
 
-@section('header')
-  <div class="header-appname">
-    @!component('components.appname')
-  </div>
-@endsection
+@section('body')
+  <div class="auth-container">
+    @include('user.alert')
 
-@section('content')
-  @set('title', 'Register')
-  <form action="/register" method="post" id="register-form" accept-charset="UTF-8">
-    {{ csrfField() }}
-    <label for="username" id="username-label">Username</label>
-    <input type="text" id="username" name="username" required>
-    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('username'), hasErrorFor('username')) }}
-    <label for="email" id="email-label">Email</label>
-    <input type="text" id="email" name="email" required>
-    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('email'), hasErrorFor('email')) }}
-    <label for="password" id="password-label">Password</label>
-    <input type="password" id="password" name="password" required>
-    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('password'), hasErrorFor('password')) }}
-    <label for="passconfirm" id="passconfirm-label">Password Confirmation</label>
-    <input type="password" id="passconfirm" name="password_confirmation" required>
-    {{ elIf('<div class="form-error error">$self</div>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
-  </form>
-  @if(flashMessage('error'))
-    <p class="error">{{ flashMessage('error') }}</p>
-  @endif
-  <button id="register" form="register-form">Register</button>
+    <form class="form-signin" action="/register" method="post" accept-charset="UTF-8">
+      <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+
+      {{--  Username  --}}
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" id="username" class="form-control form-top" name="username" placeholder="Username" required autofocus>
+      {{ elIf('<div class="form-error error">$self</div>', getErrorFor('username'), hasErrorFor('username')) }}
+
+      {{--  Email address  --}}
+      <label for="email" class="sr-only">Email address</label>
+      <input type="email" id="email" class="form-control form-middle" name="email" placeholder="Email address" required>
+      {{ elIf('<div class="form-error error">$self</div>', getErrorFor('email'), hasErrorFor('email')) }}
+
+      {{--  Password  --}}
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control form-middle" name="password" placeholder="Password" required>
+      {{ elIf('<div class="form-error error">$self</div>', getErrorFor('password'), hasErrorFor('password')) }}
+
+      {{--  Password Confirmation  --}}
+      <label for="passconfirm" class="sr-only">Password Confirmation</label>
+      <input type="password" id="passconfirm" class="form-control form-bottom" name="password_confirmation" placeholder="Password Confirmation" required>
+      {{ elIf('<div class="form-error error">$self</div>', getErrorFor('password_confirmation'), hasErrorFor('password_confirmation')) }}
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+
+      {{ csrfField() }}
+    </form>
+  </div>
 @endsection

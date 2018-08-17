@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = class RedirectIfAuthenticated {
   async handle ({ auth, request, response }, next) {
@@ -8,12 +8,12 @@ module.exports = class RedirectIfAuthenticated {
      * ref: http://adonisjs.com/docs/4.0/authentication#_check
      */
     try {
-      await auth.check()
+      await auth.check();
 
-      return response.redirect('/')
+      return response.redirect('/');
     } catch (e) {}
 
-    await next()
+    await next();
 
   }
 };

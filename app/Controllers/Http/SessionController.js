@@ -1,4 +1,5 @@
 'use strict';
+
 const Logger = use('Logger');
 
 module.exports = class SessionController {
@@ -20,7 +21,7 @@ module.exports = class SessionController {
      *
      * ref: http://adonisjs.com/docs/4.0/request#_all
      */
-    const { username, password } = request.all();
+    const { email, password, remember } = request.all();
 
     /**
      * Wrapping the authentication in order to
@@ -29,7 +30,11 @@ module.exports = class SessionController {
      * ref: http://adonisjs.com/docs/4.1/authentication#_attempt_uid_password
      */
     try {
-      await auth.attempt(username, password);
+      await auth.attempt(email, password);
+
+      if (remember) {
+        await auth.remember(true);
+      }
     } catch (e) {
       Logger.error(e.message);
       /**
